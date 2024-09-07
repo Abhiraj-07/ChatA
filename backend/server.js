@@ -7,11 +7,11 @@ import usersRoutes from "./routes/users.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import cookieParser from "cookie-parser";
+import { server, app } from "./socket/socket.js";
 
-const app = express();
 dotenv.config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 app.use(express.json());
 app.use(cookieParser());
 // root
@@ -23,8 +23,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", usersRoutes);
 
-
-app.listen(port, () => {
+server.listen(port, () => {
   connectToMongoDB();
   console.log(`server started ON PORT ${port}`);
 });

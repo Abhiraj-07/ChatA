@@ -2,6 +2,7 @@ import Conversation from "../modals/conversion.modals.js";
 import Message from "../modals/message.modal.js";
 import mongoose from "mongoose";
 
+import { getReciverSocketId, io } from "../socket/socket.js";
 export const sendMessage = async (req, res) => {
   console.log("sendMessage function called");
   try {
@@ -33,9 +34,15 @@ export const sendMessage = async (req, res) => {
     if (newMessage) {
       conversation.messages.push(newMessage._id);
     }
+
     // await conversation.save();
     // await newMessage.save();
     await Promise.all([conversation.save(), newMessage.save()]);
+
+    const reciverSocketId = getReciverSocketId(reciverId);
+    if (reciverSocketId) {
+      io.to(reciverSocketId).emit("newMessage", newMessage);
+    }
 
     res.status(201).json(newMessage);
   } catch (e) {
@@ -55,9 +62,9 @@ export const getMessages = async (req, res) => {
     }).populate("messages");
 
     if (!conversation) {
-      res.status(200).json("no messsage found");
+      return res.status(200).json([]);
     }
-    res.status(201).json(conversation);
+    res.status(200).json(conversation);
   } catch (e) {
     console.log("error in  Send Message  " + e.message);
     return res.status(500).json({ error: "Internal Error" });

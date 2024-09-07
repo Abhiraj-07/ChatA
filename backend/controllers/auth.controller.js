@@ -30,6 +30,12 @@ export const login = async (req, res) => {
 export const signup = async (req, res) => {
   try {
     const { fullName, username, password, cpassword, gender } = req.body;
+    if (!fullName || !username || !password || !cpassword || !gender) {
+
+      console.log(fullName, username, password, cpassword, gender);
+      ("input Field missing");
+      return res.status(400).json({ errors: "Missing fields" });;
+    }
 
     if (password != cpassword) {
       return res.status(400).json({ errors: "passwortd does not match" });
