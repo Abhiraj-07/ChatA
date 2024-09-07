@@ -5,8 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": " nodemon backend/server.js",
-    "start":"node backend/server.js"
-    ,"build":"npm i && npm i --prefix frontend && npm run build --prefix frontend"
+    "start": "node backend/server.js",
+    "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend",
+    "main": "backend/server.js"
   },
   "author": "",
   "license": "ISC",
