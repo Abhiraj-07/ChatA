@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": " nodemon backend/server.js",
+    "server": " node backend/server.js",
     "start": "node backend/server.js",
     "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend",
     "main": "backend/server.js"
@@ -28,6 +28,6 @@
     "nodemon": "^3.1.4"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.x"
   }
 }
