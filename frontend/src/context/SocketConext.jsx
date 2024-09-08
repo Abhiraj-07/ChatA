@@ -13,7 +13,7 @@ export const SocketConextProvider = ({ children }) => {
   const { authUser } = useAuthContext();
   useEffect(() => {
     if (authUser) {
-      const socket = io("https://chatapp-wx5r.onrender.com", {
+      const socket = io("https://chatapp-wx5r.onrender.com/", {
         query: {
           userId: authUser._id,
         },
