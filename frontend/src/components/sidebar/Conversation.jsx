@@ -14,7 +14,7 @@ const Conversation = ({ user, id, name, profilepic }) => {
   };
 
    const {onlineUsers} = useSocketConext()
-   const  isOnline = onlineUsers.includes(id)
+   const  isOnline = onlineUsers?.includes(id)
   return (
     <>
       <div

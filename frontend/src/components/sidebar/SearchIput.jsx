@@ -12,9 +12,9 @@ const SearchIput = () => {
     if (!search) {
       return toast.error("Empty");
     }
-    const usearFinded = users.find((c) =>
-      c.fullName.toLowerCase().includes(search.toLowerCase())
-    );
+    const usearFinded = users.find((c) => {
+      c.fullName.toLowerCase().includes(search.toLowerCase());
+    });
 
     if (usearFinded) {
       SetSelectedUser(usearFinded);

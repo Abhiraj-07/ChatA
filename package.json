@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": " node backend/server.js",
     "start": "node backend/server.js",
-    "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "main": "backend/server.js"
   },
   "author": "",
@@ -28,6 +28,6 @@
     "nodemon": "^3.1.4"
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   }
 }
