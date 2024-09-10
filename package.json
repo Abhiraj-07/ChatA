@@ -25,7 +25,7 @@
     "nodemon": "^3.0.3"
   },
   "engines": {
-    "node": "latest",
+    "node": "20.x",
     "bun": "latest"
   }
 }
