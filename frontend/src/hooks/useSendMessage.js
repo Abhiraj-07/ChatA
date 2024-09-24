@@ -28,8 +28,11 @@ const useSendMessage = () => {
         messages: [...chats.messages, data], // Append the new message while keeping other details
       };
       SetChats(updatedChats);
+<<<<<<< HEAD
       console.log(" arrays is" + Array.isArray(updatedChats));
 
+=======
+>>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
       console.log(" send message ", chats);
     } catch (err) {
       toast.error(err.message);

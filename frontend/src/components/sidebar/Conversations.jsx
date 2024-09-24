@@ -10,8 +10,11 @@ const Conversations = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log(selectedUser);
     
+=======
+>>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
     const getuser = async () => {
       setLoading(true);
       try {
