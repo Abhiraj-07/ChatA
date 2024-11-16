@@ -8,12 +8,13 @@ export const useLoadingContext = () => {
 
 export const LoadingContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
+  const [emoji, setEmoji] = useState(false);
 
   return (
     <LoadingContext.Provider
       value={{
         loading,
-        setLoading,
+        setLoading,setEmoji,emoji
       }}
     >
       {children}

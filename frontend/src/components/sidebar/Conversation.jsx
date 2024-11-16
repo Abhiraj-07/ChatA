@@ -1,56 +1,43 @@
 import React from "react";
 import { useMessageContext } from "../../context/MessageContext.jsx";
 import { useAuthContext } from "../../context/AuthContext.jsx";
-import { useSocketConext } from "../../context/SocketConext.jsx";
+import { useSocketContext } from "../../context/SocketConext.jsx";
 
 const Conversation = ({ user, id, name, profilepic }) => {
-  const { chats, SetChats, SetSelectedUser, selectedUser } =
-    useMessageContext();
-
+  const { chats, SetChats, SetSelectedUser, selectedUser } = useMessageContext();
   const { authUser } = useAuthContext();
-  let IsSelected = selectedUser?._id === id;
-  let handlSelectUser = () => {
+  const { onlineUsers } = useSocketContext();
+
+  // Check if the current user is selected
+  const isSelected = selectedUser?._id === id;
+
+  // Handle user selection
+  const handleSelectUser = () => {
     SetSelectedUser(user);
-<<<<<<< HEAD
-    console.log(selectedUser);
+    console.log(user); // Log the selected user instead of selectedUser
   };
 
-  const { onlineUsers } = useSocketConext();
-  console.log(onlineUsers);
-  
+  // Check if the user is online
   const isOnline = onlineUsers?.includes(id);
-=======
-  };
 
-   const {onlineUsers} = useSocketConext()
-   const  isOnline = onlineUsers?.includes(id)
->>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
   return (
     <>
       <div
-        onClick={handlSelectUser}
-        className={` flex gap-2  items-center 
-          ${
-            IsSelected ? "bg-[#2a64ec]" : "hover:bg-[#769df7]"
-          }        }rounded p-2 py-1 cursor-pointer  `}
+        onClick={handleSelectUser}
+        className={`flex gap-2 items-center 
+          ${isSelected ? "bg-[#2a64ec]" : "hover:bg-[#769df7]"} rounded p-2 py-1 cursor-pointer`}
       >
-<<<<<<< HEAD
-        <div className={`avatar ${isOnline ? "online" : ""} `}>
-=======
-        <div className={`avatar ${isOnline?"online":""} `}>
->>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
+        <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-16 rounded-full">
-            <img className="" src={profilepic} />
+            <img className="" src={profilepic} alt={`${name}'s profile`} />
           </div>
         </div>
+
         <div className="flex flex-col flex-1">
-          <div className=" flex gap-3 justify-between ">
+          <div className="flex gap-3 justify-between">
             <p className="font-bold">{name}</p>
-<<<<<<< HEAD
-            {/* <span className="text-xl"> text additional</span> */}
-=======
-            <span className="text-xl"> text additional</span>
->>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
+            {/* Additional text or content can be inserted here */}
+            <span className="text-xl">text additional</span>
           </div>
         </div>
       </div>

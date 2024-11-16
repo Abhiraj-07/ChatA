@@ -6,10 +6,10 @@ import useListenSocket from "../../hooks/useListenSocket.js";
 const Messages = () => {
   useListenSocket();
   const { chats, loading } = useGetMessages();
-<<<<<<< HEAD
-=======
+
+
   console.log(" Messages", chats);
->>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
+
   const chatArray = chats?.messages || [];
   const lastMessageRef = useRef();
   useEffect(() => {

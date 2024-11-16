@@ -6,7 +6,7 @@ import "./index.css";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import { MessageContextProvider } from "./context/MessageContext.jsx";
 import { LoadingContextProvider } from "./context/LoadingContext.jsx";
-import { SocketConextProvider } from "./context/SocketConext.jsx";
+import { SocketContextProvider } from "./context/SocketConext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -14,9 +14,9 @@ createRoot(document.getElementById("root")).render(
       <LoadingContextProvider>
         <AuthContextProvider>
           <MessageContextProvider>
-            <SocketConextProvider>
+            <SocketContextProvider>
               <App />
-            </SocketConextProvider>
+            </SocketContextProvider>
           </MessageContextProvider>
         </AuthContextProvider>
       </LoadingContextProvider>

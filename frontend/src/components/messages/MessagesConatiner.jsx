@@ -10,11 +10,9 @@ const MessagesConatiner = () => {
   let isSelected = selectedUser ? false : true;
 
   useEffect(() => {
-<<<<<<< HEAD
+
     console.log(isSelected);
     
-=======
->>>>>>> 37dd2261f07498d07ac297e120f4ffbcc5d1d5e3
     return () => {
       SetSelectedUser(null);
     };

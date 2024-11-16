@@ -2,7 +2,7 @@ import Conversation from "../modals/conversion.modals.js";
 import Message from "../modals/message.modal.js";
 import mongoose from "mongoose";
 
-import { getReciverSocketId, io } from "../socket/socket.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
 export const sendMessage = async (req, res) => {
   console.log("sendMessage function called");
   try {
@@ -39,7 +39,7 @@ export const sendMessage = async (req, res) => {
     // await newMessage.save();
     await Promise.all([conversation.save(), newMessage.save()]);
 
-    const reciverSocketId = getReciverSocketId(reciverId);
+    const reciverSocketId = getReceiverSocketId(reciverId);
     if (reciverSocketId) {
       io.to(reciverSocketId).emit("newMessage", newMessage);
     }
